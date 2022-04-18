@@ -2,12 +2,12 @@ import React from 'react'
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Read() {
   const [getApi, setGetApi] = useState([]);
   useEffect(() => {
-    axios.get(`https://625a77e3cda73d132d1f7592.mockapi.io/subhranshu`)
+    axios.get(`https://625d22a94c36c753576fa98c.mockapi.io/Yash`)
       .then((getData) => {
         setGetApi(getData.data);
       })
@@ -34,7 +34,7 @@ function Read() {
                 <td>{data.fname}</td>
                 <td>{data.lname}</td>
                 <td>{data.id}</td>
-                {/* <td>
+                <td>
                   <Link to='/update'>
                   <button className='btn btn-warning'>update</button>
                   </Link>
@@ -43,7 +43,7 @@ function Read() {
                 <Link to='/delet'>
                   <button className='btn btn-danger'>delet</button>
                   </Link>
-                </td> */}
+                </td>
 
               </tr>
 

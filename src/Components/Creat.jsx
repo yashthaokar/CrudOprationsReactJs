@@ -8,12 +8,12 @@ import axios from 'axios';
 function Creat() {
     const [fname, setFname] = useState('')
     const [lname, setLname] = useState('');
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([{fname:'',lname:""}]);
 
     console.log(fname);
     console.log(lname);
     const getDataFromAPI = () => {
-        axios.get(`https://625a77e3cda73d132d1f7592.mockapi.io/subhranshu`)
+        axios.get(`https://625d22a94c36c753576fa98c.mockapi.io/Yash`)
             .then((response) => {
                 return (response.data
 
@@ -30,11 +30,16 @@ function Creat() {
 
     const sendDataToAPI = (e) => {
         e.preventDefault()
-        axios.post(`https://625a77e3cda73d132d1f7592.mockapi.io/subhranshu`, {
+        axios.post(`https://625d22a94c36c753576fa98c.mockapi.io/Yash`, {
             fname,
             lname
         })
+
         console.log('sendDataToAPI')
+    };
+
+    const onsubmit=()=>{
+       setData([{fname:'',lname:''}])
     };
 
 
@@ -42,14 +47,14 @@ function Creat() {
     return (
         <div>
             <h1>This is crud Oprations which are sending data to the Api, and return getting the data from Api</h1>
-            <form onSubmit={sendDataToAPI}>
+            <form onSubmit={sendDataToAPI} onClick={onsubmit}>
                 <label for="fname">First name:</label><br />
-                <input type="text" id="fname" name="fname" placeholder='type here'
+                <input type="text" id="fname" name="fname" value={data.fname} placeholder='type here'
 
                     onChange={(e) => setFname(e.target.value)} /><br />
 
                 <label for="lname">Last name:</label><br />
-                <input type="text" id="lname" name="lname" placeholder='type here'
+                <input type="text" id="lname" name="lname" value={data.lname}  placeholder='type here'
                     onChange={(e) => setLname(e.target.value)} /><br /><br />
 
 
